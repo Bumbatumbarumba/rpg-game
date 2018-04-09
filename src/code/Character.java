@@ -104,6 +104,6 @@ public abstract class Character {
 		this.currentmanapoints += manaValue;
 		if (this.currentmanapoints > this.maxmanapoints)
 			this.currentmanapoints = this.maxmanapoints;
-	}//end of replenishHealthPoints
+	}//end of replenishManaPoints
 
 }
