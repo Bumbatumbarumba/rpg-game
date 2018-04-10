@@ -12,20 +12,21 @@ import javax.swing.JLabel;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		JFrame test = new JFrame("test");
-		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		test.setVisible(true);
-		test.setSize(500, 500);
-		test.setLocationRelativeTo(null);
-		test.setResizable(false);
-		
-		Player play = new Player(200, 200, 0, 0, "src/images/player.png");
-		JLabel lbl = new JLabel(new ImageIcon("../src/images/player.png"));
-		lbl.setVisible(true);
-		lbl.setLocation(50, 50);
-		
-		test.add(play);
-		test.add(lbl);
+		try {
+			JFrame test = new JFrame("test");
+			test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			test.setSize(1000, 1000);
+			test.setLocationRelativeTo(null);
+			test.setResizable(false);
+			
+			Player play = new Player(200, 200, 0, 0, "src/images/player.png");
+			
+			test.add(play);
+			
+			//NOTE TO SELF: ALWAYS MAKE THE JFRAME VISIBLE LAST!!!!
+			test.setVisible(true);
+		} catch (IOException noImg){
+			System.out.println("image not found");
+		}
 	}//end of main
 }//end of Main
