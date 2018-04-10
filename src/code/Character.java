@@ -6,7 +6,12 @@
 
 package code;
 
-public abstract class Character {
+import java.awt.Image;
+
+import javax.swing.JComponent;
+
+@SuppressWarnings("serial")
+public abstract class Character extends JComponent{
 	private int maxhealthpoints; // the max hp available to a character
 	private int currenthealthpoints; // the current hp of the character
 	private int armor; // armor is used to determine resulting attack dmg (dmg - armor = loss in hp)
@@ -15,6 +20,7 @@ public abstract class Character {
 	private int xpos;
 	private int ypos;
 	private int attackdmg; // how much BASE damage a character does 
+	private Image charimg; // the image used to show the character
 
 	// getters and setters for each character attribute
 
@@ -81,6 +87,14 @@ public abstract class Character {
 	public void setAttackdmg(int attackdmg) {
 		this.attackdmg = attackdmg;
 	}
+	
+	// charimg
+	public Image getCharimg() {
+		return charimg;
+	}
+	public void setCharimg(Image charimg) {
+		this.charimg = charimg;
+	}
 
 	// check if the character is dead
 	public boolean isDead() {
@@ -106,4 +120,4 @@ public abstract class Character {
 			this.currentmanapoints = this.maxmanapoints;
 	}//end of replenishManaPoints
 
-}
+}//end of Character
