@@ -12,21 +12,6 @@ import javax.swing.JLabel;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		try {
-			JFrame test = new JFrame("test");
-			test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			test.setSize(1000, 1000);
-			test.setLocationRelativeTo(null);
-			test.setResizable(false);
-			
-			Player play = new Player(200, 200, 0, 0, "src/images/player.png");
-			
-			test.add(play);
-			
-			//NOTE TO SELF: ALWAYS MAKE THE JFRAME VISIBLE LAST!!!!
-			test.setVisible(true);
-		} catch (IOException noImg){
-			System.out.println("image not found");
-		}
+		Screens.initPlayAreas();
 	}//end of main
 }//end of Main
