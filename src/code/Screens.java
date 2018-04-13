@@ -29,7 +29,7 @@ public class Screens extends JPanel {
 
 	public static void initPlayAreas() {
 		area1 = new PlayArea(200, 200, 500, 500);
-		area2 = new PlayArea(200, 200, 500, 1000);
+		//area2 = new PlayArea(200, 200, 500, 1000);
 	}// end of initPlayAreas
 
 	//
@@ -49,6 +49,7 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 	private JFrame playArea = new JFrame("RPG Game");
 	private Timer t = new Timer(10, this);
 	private Player player = new Player(200, 200, 0, 0);
+	private boolean[] canMove = {true, true, true, true};
 
 	// the x and y are the starting location of the player so that
 	// when we create new screens we can easily position the player
@@ -59,7 +60,7 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 
 		// start timer to respond to keyboard input
 		t.start();
-
+		
 		// creates the play area
 		//
 		//NOTE: change EXIT_ON_CLOSE to be DO_NOTHING_ON_CLOSE when done!!
@@ -91,6 +92,28 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 	// updates the player location every tick and repaints the frame
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//check if the player can move to a valid location
+		//if they can move up
+		if (this.player.getYpos() > 0)
+			this.canMove[0] = true;
+		else
+			this.canMove[0] = false;
+		//if they can move down
+		if (this.player.getYpos() < this.playArea.getHeight())
+			this.canMove[1] = true;
+		else
+			this.canMove[1] = false;
+		//if they can move left
+		if (this.player.getXpos() > 0)
+			this.canMove[2] = true;
+		else
+			this.canMove[2] = false;
+		//if they can move right
+		if (this.player.getXpos() < this.playArea.getWidth())
+			this.canMove[3] = true;
+		else
+			this.canMove[3] = false;
+		
 		this.player.playerTick();
 		this.playArea.repaint();
 	}
@@ -101,16 +124,28 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent k) {
 		switch (k.getKeyCode()) {
 		case KeyEvent.VK_W:
-			this.player.setDy(-2);
+			if (this.canMove[0])
+				this.player.setDy(-2);
+			else
+				this.player.setDy(0);
 			break;
 		case KeyEvent.VK_S:
-			this.player.setDy(2);
+			if (this.canMove[1])
+				this.player.setDy(2);
+			else
+				this.player.setDy(0);
 			break;
 		case KeyEvent.VK_A:
-			this.player.setDx(-2);
+			if (this.canMove[2])
+				this.player.setDx(-2);
+			else
+				this.player.setDx(0);
 			break;
 		case KeyEvent.VK_D:
-			this.player.setDx(2);
+			if (this.canMove[3])
+				this.player.setDx(2);
+			else
+				this.player.setDx(0);
 			break;
 		case KeyEvent.VK_J:
 			System.out.println("test");
