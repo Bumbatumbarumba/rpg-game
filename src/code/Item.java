@@ -28,19 +28,32 @@ public class Item {
 		}
 	}//end of setItemImg
 	
+	//name
 	public String getName(){
 		return this.name;
 	}
 	
+	//description
 	public String getDescription(){
 		return this.description;
 	}
 	
+	//image
 	public Image getImg(){
 		return this.itemimg;
 	}
 	
+	//quantity
 	public int getQuantity(){
 		return this.quantity;
+	}
+	public void setQuantity(int amount){
+		this.quantity = amount;
+	}
+	public void decreaseQuantity(int amount){
+		this.quantity -= amount;
+	}
+	public void increaseQuantity(int amount){
+		this.quantity += amount;
 	}
 }//end of Item class
