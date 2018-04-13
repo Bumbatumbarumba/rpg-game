@@ -12,6 +12,6 @@ import javax.swing.JLabel;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		Screens.initPlayAreas();
+		Screens.runScreens();
 	}//end of main
 }//end of Main
