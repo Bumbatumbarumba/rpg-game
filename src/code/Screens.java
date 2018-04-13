@@ -8,11 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+//static class that contains all of the screens and stuff required to run the game
 @SuppressWarnings("serial")
 public class Screens extends JPanel{
 	private static PlayArea area1;
 	private static PlayArea area2;
-	public static InventoryScreen playerInv = new InventoryScreen();
 	
 	public static void runScreens(){
 		initPlayAreas();
@@ -27,19 +27,16 @@ public class Screens extends JPanel{
 	
 }//end of Screens
 
-
+//screens where actual gameplay occurs (ie, not menus)
 @SuppressWarnings("serial")
 class PlayArea extends JPanel implements ActionListener, KeyListener{
-	private JFrame playArea = new JFrame("test");
+	private JFrame playArea = new JFrame("RPG Game");
 	private Timer t = new Timer(10, this);
 	private Player player = new Player(100, 100, 0, 0);
 	
 	//the x and y are the starting location of the player so that
 	//when we create new screens we can easily position the player
 	public PlayArea(int x, int y, int w, int h){
-		
-		System.out.println("TEST1");
-		
 		//let's us do stuff with keyboard input or something lol
 		this.playArea.addKeyListener(this);
 		this.playArea.setFocusable(true);
@@ -56,17 +53,6 @@ class PlayArea extends JPanel implements ActionListener, KeyListener{
 		//creates an instance of player
 		this.playArea.add(this.player);
 		
-		/*try {
-			this.player = new Player(x, x, 1, 1);
-			
-			System.out.println("INSIDE CONSTRUCTOR");
-			
-			this.playArea.add(this.player);
-		} catch (IOException e) {
-			//only thrown if the game can't find the player image for whatever reason
-			System.out.println("couldn't find no gosh darn image file");
-		}*/
-		
 		//NOTE TO SELF: ALWAYS MAKE THE JFRAME VISIBLE LAST!!!!
 		//default will be false
 		this.playArea.setVisible(false);
@@ -76,13 +62,22 @@ class PlayArea extends JPanel implements ActionListener, KeyListener{
 	public void changeVis(boolean val){
 		this.playArea.setVisible(val);
 	}
-
+	
+	//change the location of the player
+	public void changePlayerLocation(int x, int y){
+		this.player.setXpos(x);
+		this.player.setYpos(y);
+	}
+	
+	//updates the player location every tick and repaints the frame
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.player.playerTick();
 		this.playArea.repaint();
 	}
-
+	
+	//checks for which keys are pressed and performs the according action
+	//w, a, s, d = move character up, left, down, right (respectively)
 	@Override
 	public void keyPressed(KeyEvent k) {
 		switch (k.getKeyCode()){
@@ -103,7 +98,9 @@ class PlayArea extends JPanel implements ActionListener, KeyListener{
 			break;
 		}
 	}
-
+	
+	//when a key is released, an action is performed; basically the
+	//opposite of above
 	@Override
 	public void keyReleased(KeyEvent k) {
 		switch (k.getKeyCode()){
@@ -131,11 +128,18 @@ class PlayArea extends JPanel implements ActionListener, KeyListener{
 //window that will come up and display the user's inventory 
 @SuppressWarnings("serial")
 class InventoryScreen extends JPanel implements KeyListener{
-
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
+	private JFrame playerInv = new JFrame("Inventory");
+	public InventoryScreen(){
 		
+	}//end of constructor
+	
+	@Override
+	public void keyPressed(KeyEvent k) {
+		switch (k.getKeyCode()){
+		case KeyEvent.VK_W:
+			
+			break;	
+		}	
 	}
 
 	@Override
