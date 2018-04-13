@@ -22,27 +22,40 @@ public class Player extends Character{
 	
 	private int dx, dy;
 	
-	public Player(int x, int y, int dx, int dy, String img) throws IOException{
+	public Player(int x, int y, int dx, int dy){
+		setXpos(x);
+		setYpos(y);
+		this.dx = dx;
+		this.dy = dy;
+		initImg();
+	}
+	
+	//initializes the image to represent the player by grabbing the img from images/
+	public void initImg(){
 		try {
-			setXpos(x);
-			setYpos(y);
-			this.dx = dx;
-			this.dy = dy;
-			setCharimg(ImageIO.read(new File(img)));
-		} catch (IOException noImg){
-			System.out.println("image not found");
+			setCharimg(ImageIO.read(new File("src/images/player.png")));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
+	//updates the player's position by dx and dy every call
 	public void playerTick(){
-		
+		setXpos(getXpos()+dx);
+		setYpos(getYpos()+dy);
 	}
 	
 	//paints the player
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(getCharimg(), getXpos(), getYpos(), this);
-		/*g.setColor(Color.BLACK);
-		g.fillRect(getXpos(), getYpos(), 64, 64);*/
+	}
+	
+	//change the dx and dy of the player
+	public void setDx(int dx){
+		this.dx = dx;
+	}
+	public void setDy(int dy){
+		this.dy = dy;
 	}
 }//end of Player
