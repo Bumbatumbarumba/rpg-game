@@ -31,7 +31,7 @@ public class Player extends Character{
 	}
 	
 	//initializes the image to represent the player by grabbing the img from images/
-	public void initImg(){
+	private void initImg(){
 		try {
 			setCharimg(ImageIO.read(new File("src/images/player.png")));
 		} catch (IOException e) {
