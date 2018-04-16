@@ -2,6 +2,10 @@
  * April 9th, 2018
  * Abstract class that has generic things that are mutual
  * between all characters, such as position, health, armor, etc
+ * 
+ * NOTE: any obstacle such as a wall, is essentially also a 
+ * character, it's just that it does not do anything and 
+ * cannot take damage
  */
 
 package code;
@@ -21,6 +25,7 @@ public abstract class Character extends JComponent{
 	private int ypos;
 	private int attackdmg; // how much BASE damage a character does 
 	private Image charimg; // the image used to show the character
+	private int charRadius = 32; //since each character image will be 64x64
 
 	// getters and setters for each character attribute
 
@@ -119,5 +124,14 @@ public abstract class Character extends JComponent{
 		if (this.currentmanapoints > this.maxmanapoints)
 			this.currentmanapoints = this.maxmanapoints;
 	}//end of replenishManaPoints
-
+	
+	
+	public boolean checkCollision(Character[] obstacleList){
+		boolean hasCollided = false;
+		
+		for (int i = 0; i < obstacleList.length; i++){
+			//see notebook for solution here
+		}
+		return hasCollided;
+	}
 }//end of Character
