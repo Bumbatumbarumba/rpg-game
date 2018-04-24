@@ -24,12 +24,13 @@ public class Screens extends JPanel {
 
 	public static void runScreens() {
 		initPlayAreas();
+		area2.changeVis(true);
 		area1.changeVis(true);
 	}
 
 	public static void initPlayAreas() {
 		area1 = new PlayArea(200, 200, 500, 500);
-		//area2 = new PlayArea(200, 200, 500, 1000);
+		area2 = new PlayArea(200, 200, 750, 750);
 	}// end of initPlayAreas
 
 	//
