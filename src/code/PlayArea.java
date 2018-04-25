@@ -11,7 +11,7 @@ import javax.swing.Timer;
 
 @SuppressWarnings("serial")
 class PlayArea extends JPanel implements ActionListener, KeyListener {
-	private JFrame playArea = new JFrame("RPG Game");
+	private JFrame playArea = new JFrame("");
 	private Timer t = new Timer(10, this);
 	private Player player = new Player(200, 200, 0, 0);
 	private boolean[] canMove = {true, true, true, true};
