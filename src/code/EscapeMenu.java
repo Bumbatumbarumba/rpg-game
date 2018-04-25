@@ -66,4 +66,4 @@ class ExitGame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.exit(0);
 	}
-}// end of NoPop
+}// end of ExitGame
