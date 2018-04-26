@@ -15,23 +15,21 @@ import javax.swing.Timer;
 //static class that contains all of the screens and stuff required to run the game
 @SuppressWarnings("serial")
 public class Screens extends JPanel {
+	//the start menu of the game
+	private static MainMenu startScreen;
+	
 	// ares where the user can interact - POSSIBLY MAKE INTO ARRAYLIST
-	/*private static PlayArea area1;
-	private static PlayArea area2;*/
 	private static PlayArea[] playAreas = new PlayArea[10];
 
 	// used to keep track of the player inventory
 	private static ArrayList<Item> playerItems = new ArrayList<Item>();
-
+	
 	public static void runScreens() {
 		initPlayAreas();
-		/*area2.changeVis(false);
-		area1.changeVis(false);*/
+		startScreen = new MainMenu();
 	}
 
 	private static void initPlayAreas() {
-		/*area1 = new PlayArea(200, 200, 500, 500);
-		area2 = new PlayArea(200, 200, 750, 750);*/
 		playAreas[0] = new PlayArea(200, 200, 750, 750);
 		playAreas[1] = new PlayArea(200, 200, 750, 750);
 		playAreas[2] = new PlayArea(200, 200, 750, 750);
@@ -59,5 +57,9 @@ public class Screens extends JPanel {
 			playAreas[i].changeVis(false);
 		}
 		playAreas[screen].changeVis(true);
+	}
+	
+	public static MainMenu getStartScreen(){
+		return startScreen;
 	}
 }// end of Screens
