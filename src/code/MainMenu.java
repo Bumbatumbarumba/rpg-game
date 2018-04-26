@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 public class MainMenu extends JPanel{
 	private JFrame menuWindow = new JFrame("RPG Game");
 	
+	private JPanel buttonpanel = new JPanel();
+	
 	private JButton startButton = new JButton("Start Game");
 	private JButton controlsButton = new JButton("Controls");
 	private JButton exitButton = new JButton("Exit Game");
@@ -27,20 +29,35 @@ public class MainMenu extends JPanel{
 	
 	private void initScreen(){
 		this.menuWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.menuWindow.setSize(300, 300);
+		this.menuWindow.setSize(500, 500);
 		this.menuWindow.setLocationRelativeTo(null);
 		this.menuWindow.setResizable(false);
-		this.menuWindow.setVisible(true);
 		
 		initButtons();
+		
+		this.menuWindow.setVisible(true);
 	}
 	
 	private void initButtons(){
 		this.startButton.addActionListener(new StartGame());
-		this.exitButton.setBounds(150, 100, 100, 50);
+		this.startButton.setBounds(150, 100, 100, 50);
+		
+		this.controlsButton.addActionListener(new ControlsMenu());
+		this.controlsButton.setBounds(150, 200, 100, 50);
 		
 		this.exitButton.addActionListener(new ExitGame());
 		this.exitButton.setBounds(150, 300, 100, 50);
+		
+		this.buttonpanel.add(startButton);
+		this.buttonpanel.add(controlsButton);
+		this.buttonpanel.add(exitButton);
+		
+		this.menuWindow.add(buttonpanel);
+	}
+	
+	//FIGURE OUT WHY THIS DOES NOT CLOSE THE WINDOW
+	public void closeMenuWindow(){
+		this.menuWindow.dispose();
 	}
 	
 }//end of main menu
@@ -49,6 +66,7 @@ public class MainMenu extends JPanel{
 class StartGame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		Screens.getStartScreen().closeMenuWindow();
 		Screens.changeVisiblePlayArea(0);
 	}
 }// end of StartGame
