@@ -1,4 +1,4 @@
-package code;
+package code.UI;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 //menu that appears when the user presses the escape menu
 @SuppressWarnings("serial")
-class EscapeMenu extends JPanel implements KeyListener {
+public class EscapeMenu extends JPanel implements KeyListener {
 	private JFrame escMenu = new JFrame("Paused");
 	//exit button ADD MORE BUTTONS
 	private JButton exitButton = new JButton("Exit");
@@ -60,10 +60,4 @@ class EscapeMenu extends JPanel implements KeyListener {
 	}
 }// end of EscapeMenu class
 
-//class needed to close the game
-class ExitGame implements ActionListener {
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		System.exit(0);
-	}
-}// end of ExitGame
+

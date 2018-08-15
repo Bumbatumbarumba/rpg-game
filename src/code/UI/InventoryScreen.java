@@ -1,4 +1,4 @@
-package code;
+package code.UI;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 //window that will come up and display the user's inventory
 @SuppressWarnings("serial")
-class InventoryScreen extends JPanel implements KeyListener {
+public class InventoryScreen extends JPanel implements KeyListener {
 	private JFrame invScreen = new JFrame("Inventory");
 
 	public InventoryScreen() {

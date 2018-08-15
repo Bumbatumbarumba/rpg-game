@@ -1,4 +1,4 @@
-package code;
+package code.UI;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import code.Entities.Item;
 
 //static class that contains all of the screens and stuff required to run the game
 @SuppressWarnings("serial")

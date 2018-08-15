@@ -8,7 +8,7 @@
  * cannot take damage
  */
 
-package code;
+package code.Entities;
 
 import java.awt.Image;
 

@@ -2,7 +2,7 @@
  * April 20th, 2018
  * Stores stuff related to creating the main menu and its functionality
  */
-package code;
+package code.UI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

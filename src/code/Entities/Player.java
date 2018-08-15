@@ -6,7 +6,7 @@
  * pause game (STOPS ALL ACTIVITY; OR MAYBE NOT SO THAT IT'S MORE CHALLENGING
  * FOR THE PLAYER LOL), use item (equip health item, magic item, useable item) 
  */
-package code;
+package code.Entities;
 
 import java.awt.Color;
 import java.awt.Graphics;

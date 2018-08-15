@@ -5,7 +5,7 @@
  * GIVE IT SOME SORT OF RUDIMENTARY PLAYER TRACKING/AI
  */
 
-package code;
+package code.Entities;
 
 public class Enemy extends Character{
 
