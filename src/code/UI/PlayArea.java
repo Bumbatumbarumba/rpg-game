@@ -95,6 +95,7 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 		switch (k.getKeyCode()) {
 		case KeyEvent.VK_W:
 			this.player.setDy(-2);
+			System.out.println("aaa");
 			break;
 		case KeyEvent.VK_S:
 			this.player.setDy(2);
@@ -111,7 +112,7 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 		case KeyEvent.VK_ESCAPE:
 			EscapeMenu escapeMenu = new EscapeMenu();
 			break;
-		}
+		}	
 	}
 
 	// when a key is released, an action is performed; basically the
@@ -134,8 +135,15 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 		}
 	}
 
+	//test if key is typed
 	@Override
 	public void keyTyped(KeyEvent k) {
-		// prolly won't need this
+		switch (k.getKeyCode()){
+		case KeyEvent.VK_Q:
+			this.player.playerPerformedRolled();
+			this.player.Roll();
+			System.out.println("eee");
+			break;
+		}
 	}
 }// end of PlayArea class
