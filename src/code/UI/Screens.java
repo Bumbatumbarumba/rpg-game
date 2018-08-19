@@ -19,6 +19,8 @@ import code.Entities.Item;
 public class Screens extends JPanel {
 	//the start menu of the game
 	private static MainMenu startScreen;
+	//
+	private static String currentSaveFile;
 	
 	// ares where the user can interact - POSSIBLY MAKE INTO ARRAYLIST
 	private static PlayArea[] playAreas = new PlayArea[10];
@@ -32,16 +34,16 @@ public class Screens extends JPanel {
 	}
 
 	private static void initPlayAreas() {
-		playAreas[0] = new PlayArea(200, 200, 750, 750);
-		playAreas[1] = new PlayArea(200, 200, 750, 750);
-		playAreas[2] = new PlayArea(200, 200, 750, 750);
-		playAreas[3] = new PlayArea(200, 200, 750, 750);
-		playAreas[4] = new PlayArea(200, 200, 750, 750);
-		playAreas[5] = new PlayArea(200, 200, 750, 750);
-		playAreas[6] = new PlayArea(200, 200, 750, 750);
-		playAreas[7] = new PlayArea(200, 200, 750, 750);
-		playAreas[8] = new PlayArea(200, 200, 750, 750);
-		playAreas[9] = new PlayArea(200, 200, 750, 750);
+		playAreas[0] = new PlayArea(200, 200, 750, 750, 0);
+		playAreas[1] = new PlayArea(200, 200, 750, 750, 1);
+		playAreas[2] = new PlayArea(200, 200, 750, 750, 2);
+		playAreas[3] = new PlayArea(200, 200, 750, 750, 3);
+		playAreas[4] = new PlayArea(200, 200, 750, 750, 4);
+		playAreas[5] = new PlayArea(200, 200, 750, 750, 5);
+		playAreas[6] = new PlayArea(200, 200, 750, 750, 6);
+		playAreas[7] = new PlayArea(200, 200, 750, 750, 7);
+		playAreas[8] = new PlayArea(200, 200, 750, 750, 8);
+		playAreas[9] = new PlayArea(200, 200, 750, 750, 9);
 	}// end of initPlayAreas
 
 	//if the item exists in the player inventory, we update its quantity,
@@ -63,5 +65,22 @@ public class Screens extends JPanel {
 	
 	public static MainMenu getStartScreen(){
 		return startScreen;
+	}
+	
+	//gets the list of play areas
+	public static PlayArea[] GetPlayAreas(){
+		return playAreas;
+	}
+	
+	//when the save file is loaded, then we update this variable to
+	//that save file's name, so we can update the file with new
+	//data when saving/exiting.
+	public static void LoadedSaveFileName(String loadedSave){
+		currentSaveFile = loadedSave;
+	}
+	
+	//gets the current save file name
+	public static String GetCurrentSaveFileName(){
+		return currentSaveFile;
 	}
 }// end of Screens

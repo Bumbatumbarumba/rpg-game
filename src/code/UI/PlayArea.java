@@ -12,15 +12,19 @@ import javax.swing.Timer;
 import code.Entities.Player;
 
 @SuppressWarnings("serial")
-class PlayArea extends JPanel implements ActionListener, KeyListener {
+public class PlayArea extends JPanel implements ActionListener, KeyListener {
 	private JFrame playArea = new JFrame("");
 	private Timer t = new Timer(10, this);
 	private Player player = new Player(200, 200, 0, 0);
+	private int levelNumber;
 	private boolean[] canMove = {true, true, true, true};
 
 	// the x and y are the starting location of the player so that
 	// when we create new screens we can easily position the player
-	public PlayArea(int x, int y, int w, int h) {
+	public PlayArea(int x, int y, int w, int h, int levelNumber) {
+		//when the PlayArea is created, it is assigned a number
+		this.levelNumber = levelNumber;
+		
 		// let's us do stuff with keyboard input or something lol
 		this.playArea.addKeyListener(this);
 		this.playArea.setFocusable(true);
@@ -56,6 +60,15 @@ class PlayArea extends JPanel implements ActionListener, KeyListener {
 		this.player.setYpos(y);
 	}
 
+	//gets the player location so that we can save it
+	public int GetPlayerXpos(){
+		return this.player.getXpos();
+	}
+	public int GetPlayerYpos(){
+		return this.player.getYpos();
+	}
+	
+	
 	// updates the player location every tick and repaints the frame
 	@Override
 	public void actionPerformed(ActionEvent e) {
