@@ -15,6 +15,7 @@ import code.UI.Screens;
  * Creates a save file by pulling some data (not sure what)
  * --> PLAYER LOCATION FOR SURE
  * --> WHICH SCREEN THE PLAYER IS IN
+ * --> PLAYER'S INVENTORY CONTENTS
  * --> THINK OF OTHER STUFF
  */
 public class SaveMaker {
